@@ -149,7 +149,28 @@ function init() {
             message: 'would you like to add another member?',
             choices: ['yes', 'no']
         }
-    ])
+    ]).then ((data) => {
+        if (data.title === 'manager'){
+            const manager = new Manager(data.title, data.name, data.id, data.email, data.officeNumber);
+            teamMembers.push(manager);
+        }
+        if (data.title === 'engineer'){
+            const engineer = new Engineer(data.title, data.name, data.id, data.email, data.github);
+            teamMembers.push(engineer);
+        }
+        if (data.title === 'intern'){
+            const intern = new Intern (data.title, data.name, data.id, data.email, data.school);
+            teamMembers.push(intern);
+        }
+        if (data.anotherMember === 'yes'){
+            return init();  
+        } else {
+            return teamMembers
+        }
+         
+    }).then (answers => {
+        console.log(answers)
+    }) 
 }
 
 init()

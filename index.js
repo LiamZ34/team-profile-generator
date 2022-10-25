@@ -139,11 +139,16 @@ function init() {
         },
         {
             type: 'input',
-            name: 'github',
-            message: 'What is the interns github?',
+            name: 'school',
+            message: 'What is the interns school?',
             when: (data) => data.title === 'intern'
         },
-       
+        {
+            type: 'list',
+            name: 'anotherMember',
+            message: 'would you like to add another member?',
+            choices: ['yes', 'no']
+        }
     ])
 }
 

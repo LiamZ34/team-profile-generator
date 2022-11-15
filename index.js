@@ -2,9 +2,9 @@ const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
 const Manager = require("./lib/Manager")
 const inquirer = require("inquirer")
-const path = require("path")
+//const path = require("path")
 const fs = require("fs")
-const generateHTML = require("./src/generateHTML")
+//const generateHTML = require("./src/generateHTML")
 
 const teamMembers = []
 
@@ -37,8 +37,8 @@ const teamMembers = []
 //         teamMembers.push(manager)
 //         buildTeam()
 //     })
-    
-    
+
+
 // }
 
 // function buildTeam () {
@@ -64,7 +64,7 @@ const teamMembers = []
 // }
 
 function init() {
-    inquirer.prompt ([
+    inquirer.prompt([
         {
             type: 'list',
             name: 'title',
@@ -149,28 +149,67 @@ function init() {
             message: 'would you like to add another member?',
             choices: ['yes', 'no']
         }
-    ]).then ((data) => {
-        if (data.title === 'manager'){
-            const manager = new Manager(data.title, data.name, data.id, data.email, data.officeNumber);
+    ]).then((data) => {
+        if (data.title === 'manager') {
+            const manager = new Manager(data.name, data.id, data.email, data.officeNumber);
             teamMembers.push(manager);
         }
-        if (data.title === 'engineer'){
-            const engineer = new Engineer(data.title, data.name, data.id, data.email, data.github);
+        if (data.title === 'engineer') {
+            const engineer = new Engineer(data.name, data.id, data.email, data.github);
             teamMembers.push(engineer);
         }
-        if (data.title === 'intern'){
-            const intern = new Intern (data.title, data.name, data.id, data.email, data.school);
+        if (data.title === 'intern') {
+            const intern = new Intern(data.name, data.id, data.email, data.school);
             teamMembers.push(intern);
         }
-        if (data.anotherMember === 'yes'){
-            return init();  
+        if (data.anotherMember === 'yes') {
+            return init();
         } else {
-            return teamMembers
+            //return teamMembers
+
+            let content = `<!DOCTYPE html>
+            <html lang="EN">
+            <head>
+            <link rel="stylesheet" href="style.css">
+            </head>
+            <body>
+            <header class="header"> My Team </header>
+            <div class="flex-container">
+            `;
+    
+            // loop through the members and add them to the web page
+            //for (let empl in teamMembers) {
+            let empl;
+            for (let i=0; i<teamMembers.length; i++) {
+                empl = teamMembers[i];
+                //console.log(empl);
+                //console.log(typeof(empl));
+                content += empl.getHTML();
+            }
+    
+            content += `
+            </div>
+            </body>
+            </html>`;
+    
+            fs.writeFile('./dist/index.html', content, err => {
+                if (err) {
+                    console.error(err);
+                }
+                // file written successfully
+            });
+
+
+
         }
-         
-    }).then (answers => {
-        console.log(answers)
-    }) 
+
+    }).then(answers => {
+        //console.log(answers)
+        //console.log("****",teamMembers[0],typeof(teamMembers[0]));
+
+        
+
+    })
 }
 
 init()

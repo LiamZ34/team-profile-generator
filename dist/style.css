@@ -1,0 +1,20 @@
+.flex-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+justify-content: space-evenly;
+
+}
+
+.header {
+    padding: 30px;
+    text-align: center;
+    background-color: rgb(255, 72, 102);
+    color: white;
+    font-size: 15px
+}
+
+/* Employee divs */
+.flex-container > div {
+    background-color: blue;
+}

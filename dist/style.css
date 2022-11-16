@@ -2,8 +2,8 @@
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
-justify-content: space-evenly;
-
+justify-content: space-between;
+margin-top: 20px;
 }
 
 .header {
@@ -17,4 +17,25 @@ justify-content: space-evenly;
 /* Employee divs */
 .flex-container > div {
     background-color: blue;
+}
+
+.employee-header {
+    background-color:beige;
+    border: .5px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    text-align: space-between;
+    padding: 10px;
+}
+.info {
+    background-color: rgb(150, 165, 178);
+    border: .5px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    text-align: space-between;
+    padding: 10px;
+}
+.flex {
+    flex: 10%;
+    margin: 50px;
 }

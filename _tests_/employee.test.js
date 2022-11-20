@@ -41,11 +41,11 @@ test('can get email via getEmail', () => {
     expect(e.getEmail()).toBe(email) 
 }) 
 
-test('can get email via getEmail', () => {
-    const email = 'william@gmail.com'
-    const e = new Employee('william', 2, email)
-    expect(e.getEmail()).toBe(email) 
-}) 
+test('can get role via getRole', () => {
+    const role = 'Employee'
+    const e = new Employee('william', 2, 'williamh2461@gmail.com', 'employee')
+    expect(e.getRole()).toBe(role) 
+})
 
 
  

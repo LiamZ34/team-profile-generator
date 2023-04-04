@@ -5,7 +5,7 @@ This Application is used to generate a team profile based on user input using th
 
 ## Table of Contents 
 * [Walkthrough](#Walkthrough)
-* [Screenshot](Screenshot)
+* [Screenshot](#Screenshot)
 
 ## Walkthrough Video
 [Untitled_ Nov 19, 2022 10_58 PM.webm](https://user-images.githubusercontent.com/103050228/202884857-e7c7741b-8447-49fb-ac0b-a3bd7bbc22bf.webm)
